@@ -2,16 +2,28 @@ document.addEventListener("DOMContentLoaded", async function () {
     // __init__
     // console.log("頁面架構載入完成，初始化開始");
     initvalue()
-    BuildMessageBoard()
+    await BuildMessageBoard()
 });
 
 
 function initvalue() {
     document.querySelector('.submit_but').addEventListener('click', async () => {
-        UploadInputMessage();
-    }
+        await UploadInputMessage();
+        window.location.reload();
+        }
+    )
+    document.querySelector('.message_content__input_text').addEventListener('input', () => {
+        if (document.querySelector('.message_content__input_text').value !== '') {
+            document.querySelector('.submit_but').disabled = false;
+            document.querySelector('.submit_but').classList.add('enabled');
+        } else {
+            document.querySelector('.submit_but').disabled = true;
+            document.querySelector('.submit_but').classList.remove('enabled');
+        }
+      });
 
-)}
+    document.querySelector('.submit_but').disabled = true;
+}
 
 
 async function GetMessage_data() {
@@ -55,10 +67,11 @@ async function BuildMessageBoard() {
         message_img_div_dom.id=`message_img_div_${i}`;
         document.querySelector(`#message_dom_${i}`).appendChild(message_img_div_dom);
 
-        let message_img_dom = document.createElement("div");
+        let message_img_dom = document.createElement("img");
         message_img_dom.className='message_img';
         message_img_dom.id=`message_img_${i}`;
-        message_img_dom.style.backgroundImage=`url("${message_data_img}")`;
+        message_img_dom.src=`${message_data_img}`
+        // message_img_dom.style.backgroundImage=`url("${message_data_img}")`;
         document.querySelector(`#message_img_div_${i}`).appendChild(message_img_dom);
     }
 }

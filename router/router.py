@@ -27,6 +27,8 @@ async def upload_message(request:Request, file:UploadFile = File(None) , message
     message_text = message
     DB_func = DBfunction() #資料庫操作程式
     s3_func = s3_function() #S3操作程式
+    print(file)
+    print(message)
 
     try:
         #如果有上傳圖片檔案
@@ -38,7 +40,6 @@ async def upload_message(request:Request, file:UploadFile = File(None) , message
         #沒有上傳圖片檔案
         else:
             DB_func.MessageInsertToDB(message = message_text, upload_img_url = "") #存入DB
-
 
     except Exception as e:
         print(e)

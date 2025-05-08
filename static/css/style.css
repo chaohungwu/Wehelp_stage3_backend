@@ -86,7 +86,6 @@ body{
     width: 100%;
     justify-content: end;
 }
-
 .submit_but{
     height: 30px;
     width: 100px;
@@ -94,17 +93,34 @@ body{
     border: 0;
     color: white;
     /* background-color: rgba(135, 81, 0, 0.8); */
+    background-color: rgba(97, 97, 97, 0.8);
+    box-shadow:  1px 1px 5px rgb(139, 139, 139);
+    cursor: not-allowed;
+}
+
+.submit_but.enabled{
+    height: 30px;
+    width: 100px;
+    border-radius: 5px; 
+    border: 0;
+    color: white;
+    /* background-color: rgba(135, 81, 0, 0.8); */
     background-color: rgba(24, 121, 248, 0.8);
     box-shadow:  1px 1px 5px rgb(139, 139, 139);
     cursor: pointer;
 }
-.submit_but:hover{
+.submit_but.enabled:hover{
     border-radius: 5px;
     border: 0;
     color: white;
     background-color: rgba(24, 121, 248, 1);
     box-shadow:  1px 1px 2px rgb(139, 139, 139);
 }
+
+
+
+
+
 
 
 
@@ -166,9 +182,11 @@ body{
 .message_img{
     height: auto;
     width: auto;
+    max-height: 300px;
     min-height: 180px;
     min-width: 280px;
-    background-image: url("../3.jpg");
-    background-position: center;
-    background-size: cover;
+    object-fit: cover;
+    /* background-image: url("../3.jpg"); */
+    /* background-position: center; */
+    /* background-size: cover; */
 }

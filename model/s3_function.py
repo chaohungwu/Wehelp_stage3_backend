@@ -42,7 +42,7 @@ class s3_function:
                 ContentType=img_file.content_type 
         )
 
-        image_url = f"https://{AWS_S3_bucket_name}.s3.{region_name}.amazonaws.com/{s3_key}"
+        image_url = f"https://d2uqyos5dxmh9l.cloudfront.net/{s3_key}"
 
-        
+
         return {"img_path":image_url,"message":"ok"}
