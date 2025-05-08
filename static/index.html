@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>圖文留言板</title>
+    <title>WeHelp圖文留言板</title>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans TC' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script defer src="/js/main.js"></script>
+    <script defer src="/js/upload.js"></script>
+
 </head>
+
 <body>
-    
+    <div class="contain">
+        <div class="content">
+            <div class="top_menu">
+                <div class="message_content">
+                    <h1 class="h1_title">WeHelp圖文留言板</h1>
+                    <div class="message_content__title">請輸入留言內容：</div>
+                    <input class="message_content__input_text" type="text">
+                    <div class="message_content__title">上傳照片：</div>
+                    <div class="message_content__input_img_div">
+                        <input class="message_content__input_img" type="file" id="image" accept="image/*">
+                    </div>
+                    <div class="submit_but_content">
+                        <button class="submit_but">送出</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>    
 </body>
+
 </html>
