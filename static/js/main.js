@@ -43,11 +43,20 @@ async function BuildMessageBoard() {
     for(i=0;i<message_data.length;i++){        
         message_data_text = message_data[i][1]
         message_data_img = message_data[i][2]
+        let content_num2_child_dom = document.querySelector(".content").children[1]
 
-        let BuildMessageBoard_dom = document.createElement("div");
-        BuildMessageBoard_dom.className='message_board';
-        BuildMessageBoard_dom.id=`message_board_${i}`;
-        document.querySelector(".content").appendChild(BuildMessageBoard_dom);
+        if(content_num2_child_dom){
+            let BuildMessageBoard_dom = document.createElement("div");
+            BuildMessageBoard_dom.className='message_board';
+            BuildMessageBoard_dom.id=`message_board_${i}`;
+            document.querySelector(".content").insertBefore(BuildMessageBoard_dom, content_num2_child_dom);
+        }else{
+            let BuildMessageBoard_dom = document.createElement("div");
+            BuildMessageBoard_dom.className='message_board';
+            BuildMessageBoard_dom.id=`message_board_${i}`;
+            document.querySelector(".content").appendChild(BuildMessageBoard_dom);
+        }
+
 
         let message_dom_dom = document.createElement("div");
         message_dom_dom.className='message_dom';
