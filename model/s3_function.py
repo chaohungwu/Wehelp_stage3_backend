@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import boto3
+from datetime import datetime
 
 
 AWS_S3_access_key = os.getenv("AWS_S3_access_key")
@@ -25,6 +26,7 @@ class s3_function:
         pass
 
     async def UploadImgToS3(self, img_file):
+        currentDateAndTime = datetime.now()
 
         file_bytes = await img_file.read()
         file_name = img_file.filename
@@ -32,7 +34,13 @@ class s3_function:
         # 上傳本地檔案到 S3
         bucket_name = AWS_S3_bucket_name
 
-        s3_key = "messageboard_img/{}".format(file_name)
+        s3_key = "messageboard_img/{}_{}_{}_{}_{}_{}_{}".format(currentDateAndTime.year,
+                                                                currentDateAndTime.month,
+                                                                currentDateAndTime.day,
+                                                                currentDateAndTime.hour,
+                                                                currentDateAndTime.minute,
+                                                                currentDateAndTime.second,
+                                                                file_name)
 
         s3_client.put_object(
                 Bucket=bucket_name,
