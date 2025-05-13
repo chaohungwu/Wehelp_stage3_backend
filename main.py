@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.include_router(router)
 
-@app.get("/messageboard", include_in_schema=False)
+@app.get("/messageboard/", include_in_schema=False)
 async def index(request: Request):
 	return FileResponse("./static/index.html", media_type="text/html")
 
